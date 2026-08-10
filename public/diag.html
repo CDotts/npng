@@ -1,0 +1,43 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NPNG diagnóstico</title>
+<style>
+body{background:#08090b;color:#f2f3f5;font:15px -apple-system,system-ui,sans-serif;margin:0;padding:20px;line-height:1.5}
+h1{font-size:20px;margin:0 0 12px}
+button{font:inherit;background:#7ee0a4;color:#052012;border:0;border-radius:10px;padding:14px;width:100%;font-weight:600;margin:6px 0}
+pre{white-space:pre-wrap;word-break:break-word;color:#a8acb4;font-size:12px;background:#141517;padding:12px;border-radius:10px}
+</style>
+<h1>NPNG — diagnóstico</h1>
+<p id="s">carregando…</p>
+<button onclick="limpar()">Desregistrar service worker e limpar cache</button>
+<button onclick="location.href='./?cb='+Date.now()">Abrir o app forçando a rede</button>
+<pre id="o"></pre>
+<script>
+const o = document.getElementById('o')
+const log = (...a) => { o.textContent += a.join(' ') + '\n' }
+async function run() {
+  document.getElementById('s').textContent = 'Esta página ignora o app. Use os botões abaixo.'
+  log('userAgent:', navigator.userAgent)
+  log('standalone:', String(window.navigator.standalone))
+  try {
+    const regs = await navigator.serviceWorker.getRegistrations()
+    log('service workers:', regs.length)
+    for (const r of regs) log('  escopo', r.scope, '| ativo:', !!r.active)
+  } catch (e) { log('serviceWorker indisponível:', e.message) }
+  try { log('caches:', (await caches.keys()).join(', ') || 'nenhum') } catch (e) { log('caches:', e.message) }
+  try {
+    const r = await fetch('./index.html?cb=' + Date.now(), { cache: 'no-store' })
+    const t = await r.text()
+    log('index.html da rede:', r.status, '| bundle:', (t.match(/index-[^"]+\.js/) || ['?'])[0])
+  } catch (e) { log('fetch falhou:', e.message) }
+}
+async function limpar() {
+  try {
+    for (const r of await navigator.serviceWorker.getRegistrations()) await r.unregister()
+    for (const k of await caches.keys()) await caches.delete(k)
+    log('\nservice worker desregistrado e cache limpo. Abra o app pelo botão acima.')
+  } catch (e) { log('falhou:', e.message) }
+}
+run()
+</script>

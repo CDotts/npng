@@ -1,0 +1,462 @@
+
+muscles:
+  peitoral: { min: 10, max: 14 }
+  costas: { min: 10, max: 14 }
+  quadriceps: { min: 10, max: 14 }
+  posteriores: { min: 8, max: 12 }
+  gluteos: { min: 3, max: 8 }
+  lombar: { min: 4, max: 10 }
+  deltoide: { min: 6, max: 10 }
+  biceps: { min: 6, max: 10 }
+  triceps: { min: 3, max: 8 }
+  panturrilha: { min: 6, max: 10 }
+  abdomen: { min: 3, max: 6 }
+
+exercises:
+  - id: supino_reto_barra
+    name: Supino reto com barra
+    photo: ex/banco_supino_reto.jpg
+    pattern: push_h
+    class: multi_sup_livre
+    primary: [peitoral]
+    secondary: [triceps, deltoide]
+    sets: 2
+    ramp: true
+    reps: [6, 8]
+    rir: 2
+    increment: 2.5
+    load_unit: "por lado"
+    bar_kg: 20
+    rest: 180
+    failure_ok: false
+    seed_kg: 31
+    warmup_hint: true
+    setup_hint: "Banco de supino reto, suporte na altura do punho"
+
+  - id: remada_curvada_barra
+    name: Remada curvada com barra
+    photo: ex/rack.jpg
+    pattern: pull_h
+    class: multi_sup_livre
+    primary: [costas]
+    secondary: [biceps, lombar]
+    sets: 3
+    ramp: false
+    reps: [8, 10]
+    rir: 2
+    increment: 2.5
+    load_unit: "por lado"
+    bar_kg: 20
+    rest: 180
+    failure_ok: false
+    seed_kg: 30
+    warmup_hint: false
+    setup_hint: "Tronco ~45 graus, puxar para o umbigo"
+
+  - id: desenvolvimento_barra
+    name: Desenvolvimento militar com barra
+    photo: ex/rack.jpg
+    pattern: push_v
+    class: multi_sup_livre
+    primary: [deltoide]
+    secondary: [triceps]
+    sets: 3
+    ramp: false
+    reps: [6, 8]
+    rir: 2
+    increment: 2.5
+    load_unit: "por lado"
+    bar_kg: 20
+    rest: 150
+    failure_ok: false
+    seed_kg: 11
+    warmup_hint: false
+    setup_hint: ""
+
+  - id: puxada_aberta
+    name: Puxada aberta
+    photo: ex/lat_machine.jpg
+    pattern: pull_v
+    class: multi_sup_guiado
+    primary: [costas]
+    secondary: [biceps]
+    sets: 3
+    ramp: false
+    reps: [8, 10]
+    rir: 2
+    increment: 5
+    rest: 120
+    failure_ok: true
+    seed_kg: 55
+    warmup_hint: false
+    setup_hint: ""
+
+  - id: triceps_polia
+    name: Tríceps na polia, barra reta
+    photo: ex/crossover.jpg
+    pattern: isolation
+    class: acess_sup
+    primary: [triceps]
+    secondary: []
+    sets: 3
+    ramp: false
+    reps: [10, 12]
+    rir: 1
+    increment: 5
+    rest: 60
+    failure_ok: true
+    seed_kg: 45
+    warmup_hint: false
+    setup_hint: ""
+
+
+  - id: agachamento_livre
+    name: Agachamento livre
+    photo: ex/rack.jpg
+    pattern: knee
+    class: multi_inf_livre
+    primary: [quadriceps]
+    secondary: [gluteos, posteriores]
+    sets: 2
+    ramp: true
+    reps: [5, 7]
+    rir: 3
+    increment: 5
+    load_unit: "por lado"
+    bar_kg: 20
+    rest: 240
+    failure_ok: false
+    seed_kg: 55
+    warmup_hint: true
+    setup_hint: "Barra de segurança na altura do joelho"
+
+  - id: stiff_barra
+    name: Stiff com barra
+    photo: ex/rack.jpg
+    pattern: hip
+    class: multi_inf_livre
+    primary: [posteriores]
+    secondary: [gluteos, lombar]
+    sets: 3
+    ramp: false
+    reps: [6, 8]
+    rir: 2
+    increment: 2.5
+    load_unit: "por lado"
+    bar_kg: 20
+    rest: 150
+    failure_ok: false
+    seed_kg: 30
+    warmup_hint: false
+    setup_hint: ""
+
+  - id: leg_press
+    name: Leg press
+    photo: ex/leg_press.jpg
+    pattern: knee
+    class: multi_inf_guiado
+    primary: [quadriceps]
+    secondary: [gluteos]
+    sets: 3
+    ramp: false
+    reps: [10, 12]
+    rir: 1
+    increment: 10
+    rest: 120
+    failure_ok: true
+    seed_kg: 120
+    warmup_hint: false
+    setup_hint: "Pés na largura do ombro, meio da plataforma"
+
+  - id: mesa_flexora
+    name: Mesa flexora
+    photo: ex/mesa_flexora.jpg
+    pattern: isolation
+    class: acess_inf
+    primary: [posteriores]
+    secondary: []
+    sets: 3
+    ramp: false
+    reps: [10, 12]
+    rir: 1
+    increment: 5
+    rest: 60
+    failure_ok: true
+    seed_kg: 60
+    warmup_hint: false
+    setup_hint: ""
+
+  - id: panturrilha_leg_press
+    name: Panturrilha no leg press
+    photo: ex/leg_press.jpg
+    pattern: isolation
+    class: acess_inf
+    primary: [panturrilha]
+    secondary: []
+    sets: 3
+    ramp: false
+    reps: [12, 15]
+    rir: 0
+    increment: 10
+    rest: 60
+    failure_ok: true
+    seed_kg: 100
+    warmup_hint: false
+    setup_hint: "Ponta do pé na borda da plataforma"
+
+  - id: abdominal_crunch
+    name: Abdominal na máquina
+    photo: ex/abdominal_crunch.jpg
+    pattern: isolation
+    class: acess_sup
+    primary: [abdomen]
+    secondary: []
+    sets: 3
+    ramp: false
+    reps: [10, 12]
+    rir: 1
+    increment: 5
+    rest: 60
+    failure_ok: true
+    seed_kg: 35
+    warmup_hint: false
+    setup_hint: ""
+
+  - id: rosca_direta_halteres
+    name: Rosca direta com halteres
+    photo: ex/halteres.jpg
+    pattern: isolation
+    class: acess_sup
+    primary: [biceps]
+    secondary: []
+    sets: 3
+    ramp: false
+    reps: [8, 10]
+    rir: 1
+    increment: 2
+    load_unit: "por halter"
+    rest: 60
+    failure_ok: true
+    seed_kg: 10
+    warmup_hint: false
+    setup_hint: "Carga por halter"
+
+  - id: barra_fixa
+    name: Barra fixa, pegada aberta
+    photo: ex/barra_fixa.jpg
+    pattern: pull_v
+    class: multi_sup_livre
+    primary: [costas]
+    secondary: [biceps]
+    sets: 2
+    ramp: true
+    reps: [5, 8]
+    rir: 2
+    increment: 2.5
+    rest: 180
+    failure_ok: false
+    seed_kg: 0
+    warmup_hint: true
+    setup_hint: "Barra no alto da torre bilateral. Carga 0 = peso do corpo"
+
+  - id: supino_inclinado_halteres
+    name: Supino inclinado com halteres
+    photo: ex/banco_regulavel.jpg
+    pattern: push_h
+    class: multi_sup_livre
+    primary: [peitoral]
+    secondary: [triceps, deltoide]
+    sets: 3
+    ramp: false
+    reps: [8, 10]
+    rir: 2
+    increment: 2
+    load_unit: "por halter"
+    rest: 180
+    failure_ok: false
+    seed_kg: 14
+    warmup_hint: false
+    setup_hint: "Banco a 30 graus. Carga por halter"
+
+  - id: remada_baixa
+    name: Remada baixa
+    photo: ex/low_row.jpg
+    pattern: pull_h
+    class: multi_sup_guiado
+    primary: [costas]
+    secondary: [biceps]
+    sets: 3
+    ramp: false
+    reps: [10, 12]
+    rir: 2
+    increment: 5
+    rest: 120
+    failure_ok: true
+    seed_kg: 50
+    warmup_hint: false
+    setup_hint: "Puxar com as costas, cotovelo rente ao tronco"
+
+  - id: desenvolvimento_maquina
+    name: Desenvolvimento na máquina
+    photo: ex/shoulder_press.jpg
+    pattern: push_v
+    class: multi_sup_guiado
+    primary: [deltoide]
+    secondary: [triceps]
+    sets: 3
+    ramp: false
+    reps: [8, 10]
+    rir: 1
+    increment: 5
+    rest: 120
+    failure_ok: true
+    seed_kg: 30
+    warmup_hint: false
+    setup_hint: ""
+
+  - id: crucifixo_crossover
+    name: Crucifixo no crossover
+    photo: ex/crossover.jpg
+    pattern: isolation
+    class: acess_sup
+    primary: [peitoral]
+    secondary: []
+    sets: 3
+    ramp: false
+    reps: [12, 15]
+    rir: 1
+    increment: 2.5
+    load_unit: "por lado"
+    bar_kg: 0
+    rest: 60
+    failure_ok: true
+    seed_kg: 12
+    warmup_hint: false
+    setup_hint: "Carga por lado"
+
+
+  - id: levantamento_terra
+    name: Levantamento terra
+    photo: ex/rack.jpg
+    pattern: hip
+    class: multi_inf_livre
+    primary: [posteriores, lombar]
+    secondary: [costas, gluteos]
+    sets: 2
+    ramp: true
+    reps: [4, 6]
+    rir: 3
+    increment: 5
+    load_unit: "por lado"
+    bar_kg: 20
+    rest: 240
+    failure_ok: false
+    seed_kg: 50
+    warmup_hint: true
+    setup_hint: ""
+
+  - id: cadeira_extensora
+    name: Cadeira extensora
+    photo: ex/cadeira_extensora.jpg
+    pattern: knee
+    class: acess_inf
+    primary: [quadriceps]
+    secondary: []
+    sets: 3
+    ramp: false
+    reps: [10, 12]
+    rir: 1
+    increment: 5
+    rest: 60
+    failure_ok: true
+    seed_kg: 50
+    warmup_hint: false
+    setup_hint: ""
+
+  - id: hip_thrust
+    name: Elevação pélvica na máquina
+    photo: ex/hip_thrust.jpg
+    pattern: hip
+    class: multi_inf_guiado
+    primary: [gluteos]
+    secondary: [posteriores]
+    sets: 3
+    ramp: false
+    reps: [8, 12]
+    rir: 1
+    increment: 5
+    rest: 120
+    failure_ok: true
+    seed_kg: 60
+    warmup_hint: false
+    setup_hint: ""
+
+
+  - id: panturrilha_smith
+    name: Panturrilha no Smith
+    photo: ex/smith.jpg
+    pattern: isolation
+    class: acess_inf
+    primary: [panturrilha]
+    secondary: []
+    sets: 3
+    ramp: false
+    reps: [12, 15]
+    rir: 0
+    increment: 5
+    load_unit: "por lado"
+    bar_kg: 15
+    rest: 60
+    failure_ok: true
+    seed_kg: 40
+    warmup_hint: false
+    setup_hint: "Ponta do pé num step sob a barra"
+
+blocks:
+  # id é contrato: fica gravado em cada sessão e nunca é renomeado.
+  # name é livre e segue a contagem do Caio, não a numeração do método.
+  - id: meso2_acumulacao
+    name: "Bloco 1 — acumulação"
+    type: acumulacao
+    weeks: 4
+    deload_week: 5
+    rule: sets_ramp
+    intensity_pct: 80
+    days:
+      - id: A
+        name: "Superior — empurrar"
+        exercises:
+          - supino_reto_barra
+          - remada_curvada_barra
+          - desenvolvimento_barra
+          - puxada_aberta
+          - triceps_polia
+          - rosca_direta_halteres
+
+      - id: B
+        name: "Inferior — joelho"
+        exercises:
+          - agachamento_livre
+          - stiff_barra
+          - leg_press
+          - mesa_flexora
+          - panturrilha_leg_press
+
+      - id: C
+        name: "Superior — puxar"
+        exercises:
+          - barra_fixa
+          - supino_inclinado_halteres
+          - remada_baixa
+          - desenvolvimento_maquina
+          - crucifixo_crossover
+          - rosca_direta_halteres
+
+      - id: D
+        name: "Inferior — quadril"
+        exercises:
+          - levantamento_terra
+          - cadeira_extensora
+          - hip_thrust
+          - panturrilha_smith
+          - abdominal_crunch
